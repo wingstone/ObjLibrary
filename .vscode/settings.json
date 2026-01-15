@@ -1,0 +1,11 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "C#",
+            "omnisharp.enableEditorConfigSupport": true,
+            "omnisharp.enableRoslynAnalyzers": true,
+            "omnisharp.useMono": false
+        }
+    ]
+}

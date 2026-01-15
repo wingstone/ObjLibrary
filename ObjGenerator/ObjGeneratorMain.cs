@@ -1,22 +1,20 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Numerics;
-using System.Threading.Tasks;
+using MathLibrary;
 
-namespace ObjLibrary
+class ObjGenerator
 {
     class Mesh
     {
-        public Vector3[] vertices;
-        public Vector3[] normals;
-        public Vector3[] tangents;
-        public Vector4[] colors;
-        public Vector2[] uvs0;
-        public Vector2[] uvs1;
-        public int[] triangles;
+        public Vector3[]? vertices;
+        public Vector3[]? normals;
+        public Vector3[]? tangents;
+        public Vector4[]? colors;
+        public Vector2[]? uvs0;
+        public Vector2[]? uvs1;
+        public int[]? triangles;
 
         public Mesh()
         {
@@ -144,7 +142,7 @@ namespace ObjLibrary
 
     class MeshTools
     {
-        public static Mesh CopyMeshToPoints(Vector3[] points, Mesh mesh, Quaternion[] rotations = null)
+        public static Mesh CopyMeshToPoints(Vector3[] points, Mesh mesh, Quaternion[]? rotations = null)
         {
             Mesh outMesh = new Mesh();
 
@@ -177,13 +175,13 @@ namespace ObjLibrary
             for (int i = 0; i < points.Length; i++)
             {
                 // Copy vertices
-                if (mesh.vertices != null)
+                if (mesh.vertices != null && outMesh.vertices != null)
                 {
                     for (int j = 0; j < mesh.vertices.Length; j++)
                     {
                         if (rotations != null)
                         {
-                            outMesh.vertices[i * mesh.vertices.Length + j] = (Vector3.Transform(mesh.vertices[j], rotations[i])) + points[i];
+                            outMesh.vertices[i * mesh.vertices.Length + j] = rotations[i].RotateVector(mesh.vertices[j]) + points[i];
                         }
                         else
                         {
@@ -193,7 +191,7 @@ namespace ObjLibrary
                 }
 
                 // Copy normals
-                if (mesh.normals != null)
+                if (mesh.normals != null && outMesh.normals != null)
                 {
                     for (int j = 0; j < mesh.normals.Length; j++)
                     {
@@ -202,7 +200,7 @@ namespace ObjLibrary
                 }
 
                 // Copy UVs
-                if (mesh.uvs0 != null)
+                if (mesh.uvs0 != null && outMesh.uvs0 != null)
                 {
                     for (int j = 0; j < mesh.uvs0.Length; j++)
                     {
@@ -211,7 +209,7 @@ namespace ObjLibrary
                 }
 
                 // Copy UVs1
-                if (mesh.uvs1 != null)
+                if (mesh.uvs1 != null && outMesh.uvs1 != null)
                 {
                     for (int j = 0; j < mesh.uvs1.Length; j++)
                     {
@@ -220,7 +218,7 @@ namespace ObjLibrary
                 }
 
                 // Copy triangles
-                if (mesh.triangles != null)
+                if (mesh.triangles != null && outMesh.triangles != null && mesh.vertices != null)
                 {
                     for (int j = 0; j < mesh.triangles.Length; j++)
                     {
@@ -246,7 +244,7 @@ namespace ObjLibrary
                     {
                         foreach (Vector3 vertex in mesh.vertices)
                         {
-                            sb.AppendFormat("v {0} {1} {2}\n", vertex.X, vertex.Y, vertex.Z);
+                            sb.AppendFormat("v {0} {1} {2}\n", vertex.x, vertex.y, vertex.z);
                         }
                         sb.AppendLine();
                         formatCount++;
@@ -256,7 +254,7 @@ namespace ObjLibrary
                     {
                         foreach (Vector3 normal in mesh.normals)
                         {
-                            sb.AppendFormat("vn {0} {1} {2}\n", normal.X, normal.Y, normal.Z);
+                            sb.AppendFormat("vn {0} {1} {2}\n", normal.x, normal.y, normal.z);
                         }
                         sb.AppendLine();
                         formatCount++;
@@ -276,7 +274,7 @@ namespace ObjLibrary
                     {
                         foreach (Vector2 uv in mesh.uvs0)
                         {
-                            sb.AppendFormat("vt {0} {1}\n", uv.X, uv.Y);
+                            sb.AppendFormat("vt {0} {1}\n", uv.x, uv.y);
                         }
                         sb.AppendLine();
                         formatCount++;
@@ -338,17 +336,17 @@ namespace ObjLibrary
         public static Vector2 RandomVector2(Vector2 min, Vector2 max)
         {
             return new Vector2(
-                RandomFloat(min.X, max.X),
-                RandomFloat(min.Y, max.Y)
+                RandomFloat(min.x, max.x),
+                RandomFloat(min.y, max.y)
             );
         }
 
         public static Vector3 RandomVector3(Vector3 min, Vector3 max)
         {
             return new Vector3(
-                RandomFloat(min.X, max.X),
-                RandomFloat(min.Y, max.Y),
-                RandomFloat(min.Z, max.Z)
+                RandomFloat(min.x, max.x),
+                RandomFloat(min.y, max.y),
+                RandomFloat(min.z, max.z)
             );
         }
     }
@@ -372,9 +370,9 @@ namespace ObjLibrary
             Quaternion[] instanceRotations = new Quaternion[instancePoints.Length];
             for (int i = 0; i < instanceRotations.Length; i++)
             {
-                instanceRotations[i] = Quaternion.CreateFromAxisAngle(new Vector3(0, 0, 1), RandomTools.RandomFloat(0, 360));
+                instanceRotations[i] = Quaternion.AxisAngle(new Vector3(0, 0, 1), RandomTools.RandomFloat(0, 360));
             }
-            Mesh mergedMesh = MeshTools.CopyMeshToPoints(instancePoints, singleGrass);
+            Mesh mergedMesh = MeshTools.CopyMeshToPoints(instancePoints, singleGrass, instanceRotations);
             MeshTools.WriteMeshToObj(mergedMesh, "mergedGrass.obj");
 
             Console.WriteLine("----------ObjLibrary Main test end------");
