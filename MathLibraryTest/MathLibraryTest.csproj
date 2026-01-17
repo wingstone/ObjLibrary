@@ -12,7 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MathLibrary.csproj" />
+    <ProjectReference Include="..\MathLibrary\MathLibrary.csproj" />
   </ItemGroup>
 
 </Project>
