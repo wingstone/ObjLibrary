@@ -324,32 +324,7 @@ class ObjGenerator
         }
     }
 
-    class RandomTools
-    {
-        static Random random = new Random();
 
-        public static float RandomFloat(float min, float max)
-        {
-            return (float)random.NextDouble() * (max - min) + min;
-        }
-
-        public static Vector2 RandomVector2(Vector2 min, Vector2 max)
-        {
-            return new Vector2(
-                RandomFloat(min.x, max.x),
-                RandomFloat(min.y, max.y)
-            );
-        }
-
-        public static Vector3 RandomVector3(Vector3 min, Vector3 max)
-        {
-            return new Vector3(
-                RandomFloat(min.x, max.x),
-                RandomFloat(min.y, max.y),
-                RandomFloat(min.z, max.z)
-            );
-        }
-    }
 
     internal class MainClass
     {
@@ -364,13 +339,17 @@ class ObjGenerator
             Vector3[] instancePoints = new Vector3[25];
             for (int i = 0; i < instancePoints.Length; i++)
             {
-                instancePoints[i] = RandomTools.RandomVector3(new Vector3(-1, -1, 0), new Vector3(1, 1, 0));
+                instancePoints[i] = new Vector3(
+                    RandomUtil.Range(-1f, 1f),
+                    RandomUtil.Range(-1f, 1f),
+                    0f
+                );
             }
 
             Quaternion[] instanceRotations = new Quaternion[instancePoints.Length];
             for (int i = 0; i < instanceRotations.Length; i++)
             {
-                instanceRotations[i] = Quaternion.AxisAngle(new Vector3(0, 0, 1), RandomTools.RandomFloat(0, 360));
+                instanceRotations[i] = Quaternion.AxisAngle(new Vector3(0, 0, 1), RandomUtil.Range(0f, 360f));
             }
             Mesh mergedMesh = MeshTools.CopyMeshToPoints(instancePoints, singleGrass, instanceRotations);
             MeshTools.WriteMeshToObj(mergedMesh, "mergedGrass.obj");
