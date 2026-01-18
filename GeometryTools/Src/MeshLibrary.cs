@@ -26,14 +26,19 @@ namespace GeometryTools
             // Create blade vertices (two rows for width)
             int vertexCount = segmentCount * 2 + 1;
             mesh.vertices = new Vector3[vertexCount];
+            mesh.uvs0 = new Vector2[vertexCount];
             
             for (int i = 0; i < segmentCount; i++)
             {
                 float zPos = segmentLength * i;
                 mesh.vertices[i * 2] = new Vector3(-halfWidth, 0, zPos);
                 mesh.vertices[i * 2 + 1] = new Vector3(halfWidth, 0, zPos);
+
+                mesh.uvs0[i * 2] = new Vector2(0.5f - halfWidth, zPos);
+                mesh.uvs0[i * 2 + 1] = new Vector2(0.5f + halfWidth, zPos);
             }
             mesh.vertices[vertexCount - 1] = new Vector3(0, 0, 1.0f);
+            mesh.uvs0[vertexCount - 1] = new Vector2(0.5f, 1.0f);
 
             // Create triangles
             int triangleCount = ((segmentCount - 1) * 2 + 1) * 3;

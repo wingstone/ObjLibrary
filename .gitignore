@@ -6,5 +6,6 @@ obj/
 *.user
 *.suo
 *.swp
+*.obj
 *~
 .DS_Store

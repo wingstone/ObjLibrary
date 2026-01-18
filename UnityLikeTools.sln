@@ -5,11 +5,11 @@ VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathLibrary", "MathLibrary\MathLibrary.csproj", "{262FC34D-3D3A-F676-C34C-0CC36FCC0422}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathLibraryTest", "MathLibraryTest\MathLibraryTest.csproj", "{87654321-4321-4321-4321-210987654321}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjGenerator", "ObjGenerator\ObjGenerator.csproj", "{0AEEE61B-F430-4E47-8D07-E402A1904CD9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{0AEEE61B-F430-4E47-8D07-E402A1904CD9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeometryTools", "GeometryTools\GeometryTools.csproj", "{5B8C9D2A-1E4F-4B3C-8F2D-9A7C6B5E1F4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelIOTools", "ModelIOTools\ModelIOTools.csproj", "{1A2B3C4D-5E6F-7G8H-9I0J-K1L2M3N4O5P6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,18 +33,6 @@ Global
 		{262FC34D-3D3A-F676-C34C-0CC36FCC0422}.Release|x64.Build.0 = Release|Any CPU
 		{262FC34D-3D3A-F676-C34C-0CC36FCC0422}.Release|x86.ActiveCfg = Release|Any CPU
 		{262FC34D-3D3A-F676-C34C-0CC36FCC0422}.Release|x86.Build.0 = Release|Any CPU
-		{87654321-4321-4321-4321-210987654321}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{87654321-4321-4321-4321-210987654321}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{87654321-4321-4321-4321-210987654321}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{87654321-4321-4321-4321-210987654321}.Debug|x64.Build.0 = Debug|Any CPU
-		{87654321-4321-4321-4321-210987654321}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{87654321-4321-4321-4321-210987654321}.Debug|x86.Build.0 = Debug|Any CPU
-		{87654321-4321-4321-4321-210987654321}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{87654321-4321-4321-4321-210987654321}.Release|Any CPU.Build.0 = Release|Any CPU
-		{87654321-4321-4321-4321-210987654321}.Release|x64.ActiveCfg = Release|Any CPU
-		{87654321-4321-4321-4321-210987654321}.Release|x64.Build.0 = Release|Any CPU
-		{87654321-4321-4321-4321-210987654321}.Release|x86.ActiveCfg = Release|Any CPU
-		{87654321-4321-4321-4321-210987654321}.Release|x86.Build.0 = Release|Any CPU
 		{0AEEE61B-F430-4E47-8D07-E402A1904CD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0AEEE61B-F430-4E47-8D07-E402A1904CD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0AEEE61B-F430-4E47-8D07-E402A1904CD9}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -69,6 +57,18 @@ Global
 		{5B8C9D2A-1E4F-4B3C-8F2D-9A7C6B5E1F4D}.Release|x64.Build.0 = Release|Any CPU
 		{5B8C9D2A-1E4F-4B3C-8F2D-9A7C6B5E1F4D}.Release|x86.ActiveCfg = Release|Any CPU
 		{5B8C9D2A-1E4F-4B3C-8F2D-9A7C6B5E1F4D}.Release|x86.Build.0 = Release|Any CPU
+		{1A2B3C4D-5E6F-7G8H-9I0J-K1L2M3N4O5P6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A2B3C4D-5E6F-7G8H-9I0J-K1L2M3N4O5P6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A2B3C4D-5E6F-7G8H-9I0J-K1L2M3N4O5P6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1A2B3C4D-5E6F-7G8H-9I0J-K1L2M3N4O5P6}.Debug|x64.Build.0 = Debug|Any CPU
+		{1A2B3C4D-5E6F-7G8H-9I0J-K1L2M3N4O5P6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1A2B3C4D-5E6F-7G8H-9I0J-K1L2M3N4O5P6}.Debug|x86.Build.0 = Debug|Any CPU
+		{1A2B3C4D-5E6F-7G8H-9I0J-K1L2M3N4O5P6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A2B3C4D-5E6F-7G8H-9I0J-K1L2M3N4O5P6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A2B3C4D-5E6F-7G8H-9I0J-K1L2M3N4O5P6}.Release|x64.ActiveCfg = Release|Any CPU
+		{1A2B3C4D-5E6F-7G8H-9I0J-K1L2M3N4O5P6}.Release|x64.Build.0 = Release|Any CPU
+		{1A2B3C4D-5E6F-7G8H-9I0J-K1L2M3N4O5P6}.Release|x86.ActiveCfg = Release|Any CPU
+		{1A2B3C4D-5E6F-7G8H-9I0J-K1L2M3N4O5P6}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

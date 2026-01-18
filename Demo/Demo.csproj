@@ -3,8 +3,8 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>ObjGenerator</RootNamespace>
-    <AssemblyName>ObjGenerator</AssemblyName>
+    <RootNamespace>Demo</RootNamespace>
+    <AssemblyName>Demo</AssemblyName>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MathLibrary\MathLibrary.csproj" />
     <ProjectReference Include="..\GeometryTools\GeometryTools.csproj" />
+    <ProjectReference Include="..\ModelIOTools\ModelIOTools.csproj" />
   </ItemGroup>
 
 </Project>
