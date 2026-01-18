@@ -15,7 +15,7 @@ namespace GeometryTools
 
 #pragma warning disable CS0649 // Unused fields reserved for future use
         public Vector3[]? tangents;
-        public Vector4[]? colors;
+        public Color[]? colors;
 #pragma warning restore CS0649
     }
 }
